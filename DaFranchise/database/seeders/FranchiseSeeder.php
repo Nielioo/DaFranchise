@@ -15,7 +15,6 @@ class FranchiseSeeder extends Seeder
     public function run()
     {
         DB::table('franchises')->insert([
-			'franchise_id' => '1',
 			'franchise_name' => 'Excelso',
 			'franchise_founded' => '1991',
 			'franchise_type' => 'Food and Beverage',
@@ -29,7 +28,6 @@ class FranchiseSeeder extends Seeder
 		]);
 
         DB::table('franchises')->insert([
-			'franchise_id' => '2',
 			'franchise_name' => 'Lotte Grosir',
 			'franchise_founded' => '1993',
 			'franchise_type' => 'Retail',
