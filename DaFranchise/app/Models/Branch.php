@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Branch extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'branch_id',
+        'branch_location',
+        'branch_phone',
+        'branch_rating',
+        'franchise_id'
+    ];
+
+    public function franchise(){
+        //return $this->belongsTo(Parent Class, Child Primary Key, Parent Primary Key);
+        return $this->belongsTo(Franchise::class, 'franchise_id', 'franchise_id');
+    }
+
 }
