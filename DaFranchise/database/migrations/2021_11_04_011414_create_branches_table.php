@@ -18,6 +18,7 @@ class CreateBranchesTable extends Migration
             $table->string('branch_location');
             $table->string('branch_founded');
             $table->string('branch_rating');
+            $table->string('franchise_id');
             $table->timestamps();
         });
     }
