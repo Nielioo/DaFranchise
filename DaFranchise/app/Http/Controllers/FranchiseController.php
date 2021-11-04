@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class FranchiseController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,9 @@ class FranchiseController extends Controller
     public function index()
     {
         $title = 'FranchisePage';
-        return view('content.Franchise.franchise', compact('title'));
+        $franchise = Franchise::all();
+
+        return view('content.Franchise.franchise', compact('title', 'franchise'));
     }
 
     /**
@@ -25,7 +28,8 @@ class FranchiseController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'FranchisePage';
+        return view('content.Franchise.franchiseCreate', compact('title'));
     }
 
     /**
@@ -36,7 +40,24 @@ class FranchiseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'franchise_name' => 'required|min:5|max:50',
+            'franchise_founded' => 'required',
+            'franchise_type' => 'required',
+        ]);
+
+        Franchise::create([
+            // 'franchise_id' => $request->franchise_id,
+            'franchise_name' => $request->franchise_name,
+            'franchise_founded' => $request->franchise_founded,
+            'franchise_type' => $request->franchise_type,
+            'franchise_outlet' => $request->franchise_outlet,
+            'franchise_investment' => $request->franchise_investment,
+            'franchise_website' => $request->franchise_website,
+            'franchise_description' => $request->franchise_description,
+        ]);
+
+        return redirect(route('franchise.index'));
     }
 
     /**
@@ -45,9 +66,11 @@ class FranchiseController extends Controller
      * @param  \App\Models\Franchise  $franchise
      * @return \Illuminate\Http\Response
      */
-    public function show(Franchise $franchise)
+    public function show($franchise_id)
     {
-        //
+        $title = 'FranchisePage';
+        $franchise = Franchise::where('franchise_id', $franchise_id)->first();
+        return view('content.Franchise.franchiseShow', compact('title', 'franchise'));
     }
 
     /**
@@ -56,9 +79,11 @@ class FranchiseController extends Controller
      * @param  \App\Models\Franchise  $franchise
      * @return \Illuminate\Http\Response
      */
-    public function edit(Franchise $franchise)
+    public function edit($franchise_id)
     {
-        //
+        $title = 'FranchisePage';
+        $franchise = Franchise::findOrFail($franchise_id);
+        return view('content.Franchise.franchiseEdit', compact('title', 'franchise'));
     }
 
     /**
@@ -68,9 +93,20 @@ class FranchiseController extends Controller
      * @param  \App\Models\Franchise  $franchise
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Franchise $franchise)
+    public function update(Request $request, $franchise_id)
     {
-        //
+        $franchise = Franchise::findOrFail($franchise_id);
+        $franchise->update([
+            // 'franchise_id' => $request->franchise_id,
+            'franchise_name' => $request->franchise_name,
+            'franchise_founded' => $request->franchise_founded,
+            'franchise_type' => $request->franchise_type,
+            'franchise_outlet' => $request->franchise_outlet,
+            'franchise_investment' => $request->franchise_investment,
+            'franchise_website' => $request->franchise_website,
+            'franchise_description' => $request->franchise_description,
+        ]);
+        return redirect(route('franchise.index'));
     }
 
     /**
@@ -79,8 +115,10 @@ class FranchiseController extends Controller
      * @param  \App\Models\Franchise  $franchise
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Franchise $franchise)
+    public function destroy($franchise_id)
     {
-        //
+        $franchise = Franchise::findOrFail($franchise_id);
+        $franchise->delete();
+        return redirect(route('franchise.index'));
     }
 }
