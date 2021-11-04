@@ -19,7 +19,7 @@ class CreateFranchisesTable extends Migration
             $table->string('franchise_name')->unique();
             $table->integer('franchise_founded');
             $table->string('franchise_type');
-            $table->integer('franchise_outlet');
+            $table->string('franchise_outlet');
             $table->string('franchise_investment');
             $table->string('franchise_website');
             $table->text('franchise_description');
