@@ -8,13 +8,21 @@ class CreateFranchisesTable extends Migration
 {
     /**
      * Run the migrations.
+     * php artisan migrate:fresh
      *
      * @return void
      */
     public function up()
     {
         Schema::create('franchises', function (Blueprint $table) {
-            $table->id();
+            $table->string('franchise_id')->primary();
+            $table->string('franchise_name')->unique();
+            $table->integer('franchise_founded');
+            $table->string('franchise_type');
+            $table->integer('franchise_outlet');
+            $table->string('franchise_investment');
+            $table->string('franchise_website');
+            $table->text('franchise_description');
             $table->timestamps();
         });
     }
