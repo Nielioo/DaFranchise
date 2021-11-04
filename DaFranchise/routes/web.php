@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BranchController;
+use App\Http\Controllers\FranchiseController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('', HomeController::class);
+
+Route::resource('franchise', FranchiseController::class);
+
+Route::resource('branch', BranchController::class);

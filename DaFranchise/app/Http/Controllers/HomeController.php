@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Franchise;
 use Illuminate\Http\Request;
 
-class FranchiseController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,8 @@ class FranchiseController extends Controller
      */
     public function index()
     {
-        $title = 'FranchisePage';
-        return view('content.Franchise.franchise', compact('title'));
+        $title = 'HomePage';
+        return view('home', compact('title'));
     }
 
     /**
@@ -42,10 +41,10 @@ class FranchiseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Franchise  $franchise
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Franchise $franchise)
+    public function show($id)
     {
         //
     }
@@ -53,10 +52,10 @@ class FranchiseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Franchise  $franchise
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Franchise $franchise)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +64,10 @@ class FranchiseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Franchise  $franchise
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Franchise $franchise)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +75,10 @@ class FranchiseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Franchise  $franchise
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Franchise $franchise)
+    public function destroy($id)
     {
         //
     }

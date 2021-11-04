@@ -14,7 +14,8 @@ class BranchController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'BranchPage';
+        return view('content.Branch.branch', compact('title'));
     }
 
     /**
