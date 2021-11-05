@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Branch;
+use App\Models\Franchise;
 use Illuminate\Http\Request;
 
 class BranchController extends Controller
@@ -15,7 +16,9 @@ class BranchController extends Controller
     public function index()
     {
         $title = 'BranchPage';
-        return view('content.Branch.branch', compact('title'));
+        $franchise = Franchise::all();
+        $branch = Branch::all();
+        return view('content.Branch.branch', compact('title','franchise','branch'));
     }
 
     /**
@@ -25,7 +28,9 @@ class BranchController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'BranchPage';
+        $branch = Branch::all();
+        return view('content.Branch.branchCreate', compact('title','branch'));
     }
 
     /**
@@ -36,7 +41,19 @@ class BranchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'branch_location' => 'required',
+            'branch_phone' => 'required',
+            'branch_rating' => 'required',
+        ]);
+
+        Branch::create([
+            'branch_location' => $request->branch_location,
+            'branch_phone' => $request->branch_phone,
+            'branch_rating' => $request->branch_rating,
+            'franchise_id' => $request->franchise_id
+        ]);
+        return redirect(route('branch.index'));
     }
 
     /**
@@ -45,9 +62,11 @@ class BranchController extends Controller
      * @param  \App\Models\Branch  $branch
      * @return \Illuminate\Http\Response
      */
-    public function show(Branch $branch)
+    public function show($branch_id)
     {
-        //
+        $title = 'BranchPage';
+        $branch = Branch::where('branch_id', $branch_id)->first();
+        return view('content.Branch.branchShow', compact('title','branch'));
     }
 
     /**
@@ -56,9 +75,12 @@ class BranchController extends Controller
      * @param  \App\Models\Branch  $branch
      * @return \Illuminate\Http\Response
      */
-    public function edit(Branch $branch)
+    public function edit($branch_id)
     {
-        //
+        $title = 'BranchPage';
+        $franchise = Franchise::all();
+        $branch = Branch::findOrFail($branch_id);
+        return view('content.Branch.branchEdit', compact('title','franchise','branch'));
     }
 
     /**
@@ -68,9 +90,16 @@ class BranchController extends Controller
      * @param  \App\Models\Branch  $branch
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Branch $branch)
+    public function update(Request $request, $branch_id)
     {
-        //
+        $branch = Branch::findOrFail($branch_id);
+        $branch->update([
+            'branch_location' => $request->branch_location,
+            'branch_phone' => $request->branch_phone,
+            'branch_rating' => $request->branch_rating,
+            'franchise_id' => $request->franchise_id
+        ]);
+        return redirect(route('branch.index'));
     }
 
     /**
@@ -79,8 +108,10 @@ class BranchController extends Controller
      * @param  \App\Models\Branch  $branch
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Branch $branch)
+    public function destroy($branch_id)
     {
-        //
+        $branch = Branch::findOrFail($branch_id);
+        $branch->delete();
+        return redirect(route('branch.index'));
     }
 }
