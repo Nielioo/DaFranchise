@@ -29,8 +29,8 @@ class BranchController extends Controller
     public function create()
     {
         $title = 'BranchPage';
-        $branch = Branch::all();
-        return view('content.Branch.branchCreate', compact('title','branch'));
+        $franchise = Franchise::all();
+        return view('content.Branch.branchCreate', compact('title','franchise'));
     }
 
     /**
@@ -45,6 +45,7 @@ class BranchController extends Controller
             'branch_location' => 'required',
             'branch_phone' => 'required',
             'branch_rating' => 'required',
+            'franchise_id' => 'required'
         ]);
 
         Branch::create([
@@ -65,8 +66,9 @@ class BranchController extends Controller
     public function show($branch_id)
     {
         $title = 'BranchPage';
+        $franchise = Franchise::all();
         $branch = Branch::where('branch_id', $branch_id)->first();
-        return view('content.Branch.branchShow', compact('title','branch'));
+        return view('content.Branch.branchShow', compact('title','franchise','branch'));
     }
 
     /**
