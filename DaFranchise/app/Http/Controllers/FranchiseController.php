@@ -44,6 +44,10 @@ class FranchiseController extends Controller
             'franchise_name' => 'required|min:5|max:50',
             'franchise_founded' => 'required',
             'franchise_type' => 'required',
+            'franchise_outlet' => 'required',
+            'franchise_investment' => 'required',
+            'franchise_website' => 'required',
+            'franchise_description' => 'required'
         ]);
 
         Franchise::create([
