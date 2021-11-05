@@ -1,0 +1,97 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #0d6efd;
+    --dark: #21252f;
+    --body: #888;
+}
+
+body {
+    line-height: 1.5;
+    color: var(--body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-6 {
+    color: var(--dark);
+}
+
+a {
+    color: var(--dark);
+    text-decoration: none;
+}
+
+section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.hero {
+    background-image: url(../img/hero-wallpaper.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 2;
+}
+.hero::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(21, 20, 51, 0.8);
+    z-index: -1;
+}
+
+.hobby {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.hobby .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(21, 20, 51, 0.8);
+    padding: 30px;
+    display: flex;
+    align-items: flex-end;
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+
+.hobby img {
+    transition: all 0.4s ease;
+}
+
+.hobby:hover .overlay{
+    opacity: 1;
+}
+
+.hobby:hover img {
+    transform: scale(1.1);
+}
+
+form input.form-control {
+    height: 56px;
+}
+
+form .form-control {
+    border: transparent;
+    border-radius: 0;
+    background-color: rgba(0,0,0,0.02);
+}
