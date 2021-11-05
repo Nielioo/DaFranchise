@@ -17,7 +17,7 @@
         </div>
         <br>
 
-        <table class="table table-striped">
+        {{-- <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">No</th>
@@ -63,7 +63,42 @@
                     </tr>
                 @endforeach
             </tbody>
-        </table>
+        </table> --}}
+
+        <div class="row row-cols-1 row-cols-md-3">
+            @foreach ($franchise as $franchise)
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            {{ $franchise['franchise_type'] }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $franchise['franchise_name'] }}</h5>
+
+                            <p class="card-text h-50">
+                                <?php
+                                $thestring = $franchise['franchise_description'];
+                                $getlength = Str::length($thestring);
+                                $maxLength = 110;
+
+                                if ($getlength > $maxLength) {
+                                    echo Str::substr($thestring, 0, strrpos($thestring, ' ', $maxLength - $getlength));
+                                    echo ' . . .';
+                                } else {
+                                    echo $thestring;
+                                }
+                                ?>
+                            </p>
+
+                            <a href="{{ route('franchise.show', $franchise->franchise_id) }}"
+                                class="btn btn-primary">Detail</a>
+
+                        </div>
+                    </div>
+                </div>
+
+            @endforeach
+        </div>
 
     </div>
 
