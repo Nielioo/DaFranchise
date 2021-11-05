@@ -15,10 +15,20 @@ class BranchSeeder extends Seeder
     public function run()
     {
         DB::table('branches')->insert([
-            'branch_location' => 'Supermal Pakuwon Indah, Lantai 1, Jl. Mayjen Yono Suwoyo No. 2, Surabaya, Indonesia',
-            'branch_phone' => '+62317390075',
-            'branch_rating' => '4.6',
+            'branch_location' => 'Ciputra World LG, Jl. Mayjen Sungkono No.89, Surabaya, Indonesia',
+            'branch_phone' => '+623151200270',
+            'branch_rating' => '4.3',
             'franchise_id' => '1',
+
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        DB::table('branches')->insert([
+            'branch_location' => 'Jl. Ahmad Yani No.72-74, Surabaya, Indonesia',
+            'branch_phone' => '+62318283888',
+            'branch_rating' => '4.6',
+            'franchise_id' => '2',
 
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
@@ -28,7 +38,27 @@ class BranchSeeder extends Seeder
             'branch_location' => 'Jl. HR Muhammad No. 102, Surabaya, Indonesia',
             'branch_phone' => '+623199147388',
             'branch_rating' => '4.8',
-            'franchise_id' => '1',
+            'franchise_id' => '2',
+
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        DB::table('branches')->insert([
+            'branch_location' => 'Supermal Pakuwon Indah, Lantai 1, Jl. Mayjen Yono Suwoyo No. 2, Surabaya, Indonesia',
+            'branch_phone' => '+62317390075',
+            'branch_rating' => '4.6',
+            'franchise_id' => '2',
+
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        DB::table('branches')->insert([
+            'branch_location' => 'Jl. Pacar Keling No.25, Surabaya, Indonesia',
+            'branch_phone' => '+62315058133',
+            'branch_rating' => '4.3',
+            'franchise_id' => '3',
 
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
@@ -38,7 +68,7 @@ class BranchSeeder extends Seeder
             'branch_location' => 'Pakuwon Mall, Jl. Mayjen Yono Suwoyo No.2, Surabaya, Indonesia',
             'branch_phone' => '+6281216672320',
             'branch_rating' => '4.5',
-            'franchise_id' => '2',
+            'franchise_id' => '4',
 
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
