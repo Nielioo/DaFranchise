@@ -26,7 +26,13 @@ $ php artisan key:generate
 - setup .env file then run migrate command
 
 ```
-$ php artisan migrate --seed
+$ php artisan migrate:fresh
+```
+```
+$ php artisan db:seed --class=FranchiseSeeder
+```
+```
+$ php artisan db:seed --class=BranchSeeder
 ```
 ```
 $ php artisan serve
