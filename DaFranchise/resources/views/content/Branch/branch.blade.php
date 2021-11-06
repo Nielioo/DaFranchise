@@ -17,7 +17,7 @@
         </div>
         <br>
 
-        <table class="table table-striped">
+        {{-- <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">No</th>
@@ -57,7 +57,60 @@
                     </tr>
                 @endforeach
             </tbody>
-        </table>
+        </table> --}}
+
+
+        @php($index = 0)
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach ($branch as $branch)
+                <div class="col">
+                    <div class="card shadow-sm pb-2 h-100">
+                        <div class="card-header  text-primary">
+                            {{ $branch->franchise->franchise_type }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Branch of {{ $branch->franchise->franchise_name }}</h5>
+
+                            <div class="row h-50">
+                                <p class="card-text">
+                                    <?php
+                                    $thestring = $branch['branch_location'];
+                                    $getlength = Str::length($thestring);
+                                    $maxLength = 75;
+
+                                    if ($getlength > $maxLength) {
+                                        echo Str::substr($thestring, 0, strrpos($thestring, ' ', $maxLength - $getlength));
+                                        echo ' . . .';
+                                    } else {
+                                        echo $thestring;
+                                    }
+                                    ?>
+                                </p>
+                            </div>
+
+                            <div class="pt-2">
+                                <div class="d-flex justify-content-end">
+                                    <form action="{{ route('branch.destroy', $branch->branch_id) }}" method="POST">
+                                        <a class="btn btn-info"
+                                            href="{{ route('branch.show', $branch->branch_id) }}"><i
+                                                class="fa fa-eye"></i></a>
+                                        <a class="btn btn-warning"
+                                            href="{{ route('branch.edit', $branch->branch_id) }}"><i
+                                                class="fa fa-pencil"></i></a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                @php($index++)
+            @endforeach
+        </div>
 
     </div>
 

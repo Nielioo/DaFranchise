@@ -13,8 +13,6 @@
         <form action="{{ route('branch.store') }}" method="POST" class="row g-3 justify-content-center">
             @csrf
 
-            <input type="hidden" name="_method" value="PATCH">
-
             <div class="col-md-10">
                 <label class="form-label">branch_location</label>
                 <input type="text" name="branch_location" class="form-control" placeholder="Enter branch_location" required>

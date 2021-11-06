@@ -65,11 +65,12 @@
             </tbody>
         </table> --}}
 
-        <div class="row row-cols-1 row-cols-md-3">
+        @php($index = 0)
+        <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($franchise as $franchise)
                 <div class="col">
-                    <div class="card h-100">
-                        <div class="card-header">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header text-primary">
                             {{ $franchise['franchise_type'] }}
                         </div>
                         <div class="card-body">
@@ -90,16 +91,26 @@
                                 ?>
                             </p>
 
-                            <a href="{{ route('franchise.show', $franchise->franchise_id) }}"
-                                class="btn btn-primary">Detail</a>
+                            <div class="d-flex justify-content-end">
+                                <form action="{{ route('franchise.destroy', $franchise->franchise_id) }}" method="POST">
+                                    <a class="btn btn-info"
+                                        href="{{ route('franchise.show', $franchise->franchise_id) }}"><i
+                                            class="fa fa-eye"></i></a>
+                                    <a class="btn btn-warning"
+                                        href="{{ route('franchise.edit', $franchise->franchise_id) }}"><i
+                                            class="fa fa-pencil"></i></a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                </form>
+                            </div>
 
                         </div>
                     </div>
                 </div>
-
+                @php($index++)
             @endforeach
         </div>
-
     </div>
 
 @endsection
