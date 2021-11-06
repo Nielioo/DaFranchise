@@ -11,13 +11,17 @@ AFL Web Development Semester 3 (8 November 2021)
 - Run this following command in bash terminal
 
       $ composer install
+      
       $ composer global require laravel/installer
+      
       $ cp .env.example .env
+      
       $ php artisan key:generate
       
 - setup .env file then run migrate command
 
       $ php artisan migrate --seed
+      
       $ php artisan serve
       
 - Open in browser 
