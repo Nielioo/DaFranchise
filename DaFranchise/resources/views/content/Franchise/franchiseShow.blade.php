@@ -14,7 +14,7 @@
                 <li class="breadcrumb-item"><a class="breadcrumb-item-link"
                         href="{{ route('franchise.index') }}">Franchise</a></li>
                 <li class="breadcrumb-item"><a class="breadcrumb-item-link current"
-                        href="{{ route('franchise.index'), $franchise->franchise_id }}">{{ $franchise['franchise_name'] }}</a>
+                        href="#">{{ $franchise['franchise_name'] }}</a>
                 </li>
             </ol>
         </nav>

@@ -42,7 +42,7 @@ class BranchController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'branch_location' => 'required',
+            'branch_location' => 'required|min:40',
             'branch_phone' => 'required',
             'branch_rating' => 'required',
             'franchise_id' => 'required'
@@ -95,6 +95,11 @@ class BranchController extends Controller
     public function update(Request $request, $branch_id)
     {
         $branch = Branch::findOrFail($branch_id);
+
+        $this->validate($request, [
+            'branch_location' => 'required|min:40'
+        ]);
+
         $branch->update([
             'branch_location' => $request->branch_location,
             'branch_phone' => $request->branch_phone,

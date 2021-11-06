@@ -71,7 +71,7 @@
                 <textarea name="franchise_description" cols="30" rows="5" class="form-control" placeholder="Enter Description" required></textarea>
             </div>
 
-            <div class="col-md-10 mt-4 d-grid">
+            <div class="col-md-10 pt-4 d-grid">
                 <input type="submit" class="btn btn-primary" value="Create">
             </div>
         </form>
