@@ -58,17 +58,25 @@
                             <th class="text-paragraph">Branch Location</th>
                             <th class="text-paragraph text-center">Phone Number</th>
                             <th class="text-paragraph text-center">Rating</th>
+                            <th class="text-paragraph text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @php($index = 1)
                         @foreach ($franchise->branches as $branch)
                             <tr>
-                                <th class="text-paragraph text-center">{{ $index }}</th>
+
+                                <th class="text-paragraph align-middle text-center">{{ $index }}</th>
                                 @php($index++)
-                                <td class="text-paragraph">{{ $branch['branch_location'] }}</td>
-                                <td class="text-paragraph text-center">{{ $branch['branch_phone'] }}</td>
-                                <td class="text-paragraph text-center">{{ $branch['branch_rating'] }}/5</td>
+                                <td class="text-paragraph align-middle">{{ $branch['branch_location'] }}</td>
+                                <td class="text-paragraph align-middle text-center">{{ $branch['branch_phone'] }}</td>
+                                <td class="text-paragraph align-middle text-center">{{ $branch['branch_rating'] }}/5</td>
+                                <td class="text-paragraph align-middle text-center">
+                                    <a class="btn btn-info"
+                                        href="{{ route('branch.show', $branch->branch_id) }}"><i
+                                            class="fa fa-eye"></i></a>
+                                </td>
+
                             </tr>
                         @endforeach
                     </tbody>
