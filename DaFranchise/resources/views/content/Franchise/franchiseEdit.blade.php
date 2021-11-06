@@ -4,6 +4,17 @@
 
 @section('content')
     <div class="container pt-5 pb-5">
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="row mb-5">
             <div class="col-md-8 mx-auto text-center">
                 <h1>Edit Franchise Information</h1>
@@ -38,25 +49,25 @@
                     <option value="{{ $franchise['franchise_type'] }}" selected disabled hidden>
                         {{ $franchise['franchise_type'] }}</option>
 
-                        <option value="Automotive">Automotive</option>
-                        <option value="Barbershop">Barbershop</option>
-                        <option value="Beauty Care">Beauty Care</option>
-                        <option value="Course">Course</option>
-                        <option value="Digital Printing">Digital Printing</option>
-                        <option value="Expeditions">Expeditions</option>
-                        <option value="Fitness and Gym">Fitness and Gym</option>
-                        <option value="Food and Beverages">Food and Beverages</option>
-                        <option value="Karaoke">Karaoke</option>
-                        <option value="Laundry">Laundry</option>
-                        <option value="Pharmacy">Pharmacy</option>
-                        <option value="Playground">Playground</option>
-                        <option value="Property">Property</option>
-                        <option value="Reflexology">Reflexology</option>
-                        <option value="Retail">Retail</option>
-                        <option value="SPA">SPA</option>
-                        <option value="Tour and Travel">Tour and Travel</option>
-                        <option value="Water Refill">Water Refill</option>
-                        <option value="Other">Other</option>
+                    <option value="Automotive">Automotive</option>
+                    <option value="Barbershop">Barbershop</option>
+                    <option value="Beauty Care">Beauty Care</option>
+                    <option value="Course">Course</option>
+                    <option value="Digital Printing">Digital Printing</option>
+                    <option value="Expeditions">Expedition</option>
+                    <option value="Fitness and Gym">Fitness and Gym</option>
+                    <option value="Food and Beverages">Food and Beverages</option>
+                    <option value="Karaoke">Karaoke</option>
+                    <option value="Laundry">Laundry</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Playground">Playground</option>
+                    <option value="Property">Property</option>
+                    <option value="Reflexology">Reflexology</option>
+                    <option value="Retail">Retail</option>
+                    <option value="SPA">SPA</option>
+                    <option value="Tour and Travel">Tour and Travel</option>
+                    <option value="Water Refill">Water Refill</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
 

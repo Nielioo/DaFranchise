@@ -47,7 +47,7 @@ class FranchiseController extends Controller
             'franchise_outlet' => 'required',
             'franchise_investment' => 'required',
             'franchise_website' => 'required',
-            'franchise_description' => 'required'
+            'franchise_description' => 'required|min:100'
         ]);
 
         Franchise::create([
@@ -100,6 +100,17 @@ class FranchiseController extends Controller
     public function update(Request $request, $franchise_id)
     {
         $franchise = Franchise::findOrFail($franchise_id);
+
+        $this->validate($request, [
+            'franchise_name' => 'required|min:5|max:50',
+            'franchise_founded' => 'required',
+            'franchise_type' => 'required',
+            'franchise_outlet' => 'required',
+            'franchise_investment' => 'required',
+            'franchise_website' => 'required',
+            'franchise_description' => 'required|min:100'
+        ]);
+
         $franchise->update([
             // 'franchise_id' => $request->franchise_id,
             'franchise_name' => $request->franchise_name,

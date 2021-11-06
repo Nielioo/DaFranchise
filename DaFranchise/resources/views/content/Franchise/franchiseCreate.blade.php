@@ -4,6 +4,17 @@
 
 @section('content')
     <div class="container pt-5 pb-5">
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="row mb-5">
             <div class="col-md-8 mx-auto text-center">
                 <h1>Upload New Franchise</h1>
@@ -34,7 +45,7 @@
                     <option value="Beauty Care">Beauty Care</option>
                     <option value="Course">Course</option>
                     <option value="Digital Printing">Digital Printing</option>
-                    <option value="Expeditions">Expeditions</option>
+                    <option value="Expeditions">Expedition</option>
                     <option value="Fitness and Gym">Fitness and Gym</option>
                     <option value="Food and Beverages">Food and Beverages</option>
                     <option value="Karaoke">Karaoke</option>
@@ -58,17 +69,20 @@
 
             <div class="col-md-10">
                 <label class="form-label">Total Investment</label>
-                <input type="text" name="franchise_investment" class="form-control" placeholder="Enter Total Investment" required>
+                <input type="text" name="franchise_investment" class="form-control" placeholder="Enter Total Investment"
+                    required>
             </div>
 
             <div class="col-md-10">
                 <label class="form-label">Official Website</label>
-                <input type="text" name="franchise_website" class="form-control" placeholder="Enter Official Website" required>
+                <input type="text" name="franchise_website" class="form-control" placeholder="Enter Official Website"
+                    required>
             </div>
 
             <div class="col-md-10">
                 <label class="form-label">Description</label>
-                <textarea name="franchise_description" cols="30" rows="5" class="form-control" placeholder="Enter Description" required></textarea>
+                <textarea name="franchise_description" cols="30" rows="5" class="form-control"
+                    placeholder="Enter Description" required></textarea>
             </div>
 
             <div class="col-md-10 pt-4 d-grid">
@@ -85,11 +99,11 @@
         let earliestYear = 1945;
 
         while (currentYear >= earliestYear) {
-          let dateOption = document.createElement('option');
-          dateOption.text = currentYear;
-          dateOption.value = currentYear;
-          yearDropdown.add(dateOption);
-          currentYear -= 1;
+            let dateOption = document.createElement('option');
+            dateOption.text = currentYear;
+            dateOption.value = currentYear;
+            yearDropdown.add(dateOption);
+            currentYear -= 1;
         }
-      </script>
+    </script>
 @endsection
