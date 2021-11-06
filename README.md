@@ -23,7 +23,7 @@ $ cp .env.example .env
 $ php artisan key:generate
 ```
 
-- setup .env file then run migration and seeder command
+- Setup .env file then run migration and seeder command
 
 ```
 $ php artisan migrate:fresh
