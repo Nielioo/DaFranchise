@@ -22,7 +22,7 @@
         </div>
 
         <form action="{{ route('franchise.update', $franchise->franchise_id) }}" method="POST"
-            class="row g-3 justify-content-center">
+            class="row g-3 justify-content-center" enctype="multipart/form-data">
             @csrf
 
             <input type="hidden" name="_method" value="PATCH">
@@ -84,6 +84,24 @@
             </div>
 
             <div class="col-md-10">
+                <label for="franchise_logo" class="form-label">Franchise Logo</label>
+
+                <input type="hidden" name="old_franchise_logo" value="{{ $franchise['franchise_logo'] }}">
+
+                <div class="mb-3 col-sm-5">
+                    @if ($franchise->franchise_logo)
+                        <img src="{{ asset('/storage/' . $franchise['franchise_logo']) }}" class="img-preview img-fluid"
+                            style="height: 150px; object-fit: contain; overflow: hidden;">
+                    @else
+                        <img class="img-preview img-fluid" style="height: 150px; object-fit: contain; overflow: hidden;">
+                    @endif
+                </div>
+
+                <input type="file" name="franchise_logo" id="franchise_logo" class="form-control"
+                    onchange="previewImage()">
+            </div>
+
+            <div class="col-md-10">
                 <label class="form-label">Official Website</label>
                 <input type="text" name="franchise_website" class="form-control"
                     value="{{ $franchise['franchise_website'] }}" placeholder="Enter Official Website" required>
@@ -116,15 +134,19 @@
             currentYear -= 1;
         }
     </script>
-
     <script>
-        function update() {
-            var select = document.getElementById('franchise_type');
-            var option = select.options[select.selectedIndex];
+        previewImage() {
+            const image = document.querySelector('#franchise_logo');
+            const imagePreview = document.querySelector('.img-preview');
 
-            document.getElementById('value').value = option.value;
+            imagePreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.file);
+
+            oFReader.onLoad = function(oFREvent) {
+                imagePreview.src = oFREvent.target.result;
+            }
         }
-
-        update();
     </script>
 @endsection

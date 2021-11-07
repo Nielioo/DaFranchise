@@ -21,7 +21,8 @@
             </div>
         </div>
 
-        <form action="{{ route('franchise.store') }}" method="POST" class="row g-3 justify-content-center" enctype="multipart/form-data">
+        <form action="{{ route('franchise.store') }}" method="POST" class="row g-3 justify-content-center"
+            enctype="multipart/form-data">
             @csrf
 
             <div class="col-md-10">
@@ -74,8 +75,14 @@
             </div>
 
             <div class="col-md-10">
-                <label for="franchise_logo_path" class="form-label">Franchise Logo</label>
-                <input class="form-control" type="file" name="franchise_logo_path" id="franchise_logo_path">
+                <label for="franchise_logo" class="form-label">Franchise Logo</label>
+
+                {{-- <div class="mb-3 col-sm-5">
+                    <img class="img-preview img-fluid" style="height: 150px; object-fit: contain; overflow: hidden;">
+                </div> --}}
+
+                <input type="file" name="franchise_logo" id="franchise_logo" class="form-control"
+                    onchange="previewImage()">
             </div>
 
             <div class="col-md-10">
@@ -109,6 +116,21 @@
             dateOption.value = currentYear;
             yearDropdown.add(dateOption);
             currentYear -= 1;
+        }
+    </script>
+    <script>
+        previewImage() {
+            const image = document.querySelector('#franchise_logo');
+            const imagePreview = document.querySelector('.img-preview');
+
+            imagePreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.file);
+
+            oFReader.onLoad = function(oFREvent) {
+                imagePreview.src = oFREvent.target.result;
+            }
         }
     </script>
 @endsection

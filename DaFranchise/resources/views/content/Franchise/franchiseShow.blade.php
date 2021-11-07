@@ -7,7 +7,6 @@
 @section('content')
 
     <div class="container mb-3">
-
         {{-- NavBar --}}
         <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -25,14 +24,13 @@
 
         <br>
 
-        <div class="h-100">
-            {{-- @if ($franchise['franchise_logo_path'] != null)
-                <img src="{{ asset('storage/post-images/franchise_logo' . $franchise['franchise_logo_path']) }}" alt=""
-                    class="img-fluid">
-            @else
-                <img src="img/default-square.jpg" alt="" class="img-fluid">
-            @endif --}}
-        </div>
+        {{-- Franchise Logo --}}
+        @if ($franchise['franchise_logo'] != null)
+            <img src="{{ asset('/storage/' . $franchise['franchise_logo']) }}" alt="{{ $franchise['franchise_logo'] }}"
+                class="img-fluid logo-height">
+        @else
+            <img src="/img/default-square.jpg" alt="" class="img-fluid logo-height">
+        @endif
 
 
         <br>

@@ -35,6 +35,12 @@
     color: var(--bs-indigo);
 }
 
+.logo-height{
+    max-height: 300px;
+    object-fit: contain;
+    overflow: hidden;
+}
+
 .text-paragraph{
     color: var(--bs-gray-dark);
 }
