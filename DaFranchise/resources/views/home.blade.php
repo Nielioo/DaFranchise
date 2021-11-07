@@ -13,7 +13,7 @@
             <div class="row">
                 {{-- lg for large because this container is main page --}}
                 <div class="col-lg-10 mx-auto text-center">
-                    <h1 class="display-4 text-white"><b>It takes years to build a reputation and five minutes to ruin it.</b></h1>
+                    <h1 class="display-4 text-white"><b>It takes years to build a reputation five minutes to ruin it.</b></h1>
                     <br>
                     <p class="text-white"> That means <i>customer service can make or break your business.</i><br>Don’t ruin your reputation, or your franchisor’s reputation, by making a stupid mistake you’ll regret later.</p>
                     <br>
