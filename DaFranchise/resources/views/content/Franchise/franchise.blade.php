@@ -63,7 +63,6 @@
                 @endforeach
             </tbody>
         </table> --}}
-
         @php($index = 0)
         <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($franchise as $franchise)
@@ -73,7 +72,18 @@
                             {{ $franchise['franchise_type'] }}
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">{{ $franchise['franchise_name'] }}</h5>
+
+                            {{-- Franchise Logo --}}
+                            @if ($franchise['franchise_logo'] != null)
+                                <img src="{{ asset('/storage/' . $franchise['franchise_logo']) }}"
+                                    alt="{{ $franchise['franchise_logo'] }}" class="img-fluid"
+                                    style="height: 30px; object-fit: contain; overflow: hidden; float: right;">
+                            @else
+                                <img src="/img/default-square.jpg" alt="" class="img-fluid"
+                                    style="height: 30px; object-fit: contain; overflow: hidden; float: right;">
+                            @endif
+
+                            <h5 class="card-title mt-2 mb-3">{{ $franchise['franchise_name'] }}</h5>
 
                             <p class="card-text h-50">
                                 <?php
@@ -90,7 +100,7 @@
                                 ?>
                             </p>
 
-                            <div class="d-flex justify-content-end">
+                            <div class="d-flex justify-content-end pb-3">
                                 <form action="{{ route('franchise.destroy', $franchise->franchise_id) }}" method="POST">
                                     <a class="btn btn-info"
                                         href="{{ route('franchise.show', $franchise->franchise_id) }}"><i

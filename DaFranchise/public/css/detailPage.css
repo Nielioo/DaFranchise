@@ -36,6 +36,7 @@
 }
 
 .logo-height{
+    height: 300px;
     max-height: 300px;
     object-fit: contain;
     overflow: hidden;
