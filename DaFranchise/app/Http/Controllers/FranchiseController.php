@@ -46,20 +46,24 @@ class FranchiseController extends Controller
             'franchise_type' => 'required',
             'franchise_outlet' => 'required',
             'franchise_investment' => 'required',
+            'franchise_logo_path' => 'image|file|max:1024',
             'franchise_website' => 'required',
             'franchise_description' => 'required|min:100'
         ]);
 
-        Franchise::create([
-            // 'franchise_id' => $request->franchise_id,
-            'franchise_name' => $request->franchise_name,
-            'franchise_founded' => $request->franchise_founded,
-            'franchise_type' => $request->franchise_type,
-            'franchise_outlet' => $request->franchise_outlet,
-            'franchise_investment' => $request->franchise_investment,
-            'franchise_website' => $request->franchise_website,
-            'franchise_description' => $request->franchise_description,
-        ]);
+        $validateData['franchise_name'] = $request->franchise_name;
+        $validateData['franchise_founded'] = $request->franchise_founded;
+        $validateData['franchise_type'] = $request->franchise_type;
+        $validateData['franchise_outlet'] = $request->franchise_outlet;
+        $validateData['franchise_investment'] = $request->franchise_investment;
+        $validateData['franchise_website'] = $request->franchise_website;
+        $validateData['franchise_description'] = $request->franchise_description;
+
+        if($request->file('franchise_logo_path')){
+            $validateData['franchise_logo_path'] = $request->file('franchise_logo_path')->store('post-images/franchise_logo');
+        }
+
+        Franchise::create($validateData);
 
         return redirect(route('franchise.index'));
     }

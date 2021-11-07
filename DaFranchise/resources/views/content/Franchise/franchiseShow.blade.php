@@ -23,7 +23,19 @@
         {{-- Franchise Name --}}
         <h1 class="h1 mb-2">{{ $franchise['franchise_name'] }}</h1>
 
-        <br><br>
+        <br>
+
+        <div class="h-100">
+            {{-- @if ($franchise['franchise_logo_path'] != null)
+                <img src="{{ asset('storage/post-images/franchise_logo' . $franchise['franchise_logo_path']) }}" alt=""
+                    class="img-fluid">
+            @else
+                <img src="img/default-square.jpg" alt="" class="img-fluid">
+            @endif --}}
+        </div>
+
+
+        <br>
 
         <div class="row justify-content-center">
 
@@ -72,8 +84,7 @@
                                 <td class="text-paragraph align-middle text-center">{{ $branch['branch_phone'] }}</td>
                                 <td class="text-paragraph align-middle text-center">{{ $branch['branch_rating'] }}/5</td>
                                 <td class="text-paragraph align-middle text-center">
-                                    <a class="btn btn-info"
-                                        href="{{ route('branch.show', $branch->branch_id) }}"><i
+                                    <a class="btn btn-info" href="{{ route('branch.show', $branch->branch_id) }}"><i
                                             class="fa fa-eye"></i></a>
                                 </td>
 

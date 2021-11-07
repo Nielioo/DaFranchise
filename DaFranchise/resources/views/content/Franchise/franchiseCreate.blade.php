@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <form action="{{ route('franchise.store') }}" method="POST" class="row g-3 justify-content-center">
+        <form action="{{ route('franchise.store') }}" method="POST" class="row g-3 justify-content-center" enctype="multipart/form-data">
             @csrf
 
             <div class="col-md-10">
@@ -71,6 +71,11 @@
                 <label class="form-label">Total Investment</label>
                 <input type="text" name="franchise_investment" class="form-control" placeholder="Enter Total Investment"
                     required>
+            </div>
+
+            <div class="col-md-10">
+                <label for="franchise_logo_path" class="form-label">Franchise Logo</label>
+                <input class="form-control" type="file" name="franchise_logo_path" id="franchise_logo_path">
             </div>
 
             <div class="col-md-10">
