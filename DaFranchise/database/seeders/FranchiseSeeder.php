@@ -20,6 +20,7 @@ class FranchiseSeeder extends Seeder
 			'franchise_type' => 'Pharmacy',
 			'franchise_outlet' => '280',
 			'franchise_investment' => '400 juta',
+            'franchise_logo' => 'post-images/franchise_logo/Century.jpg',
 			'franchise_website' => 'https://century-pharma.com',
 			'franchise_description' => 'Century percaya pada pentingnya kesehatan yang utuh. Kami memposisikan diri untuk membantu setiap manusia agar berinvestasi dalam kesehatan utuh mereka; sehingga mereka dapat mewujudkan tujuan hidup dengan lebih baik, dan menjadi bagian dari masyarakat yang lebih berkualitas di masa depan.',
 
@@ -33,6 +34,7 @@ class FranchiseSeeder extends Seeder
 			'franchise_type' => 'Food and Beverage',
 			'franchise_outlet' => '126',
 			'franchise_investment' => '250 juta s/d 1.5 milyar',
+            'franchise_logo' => 'post-images/franchise_logo/Excelso.png',
 			'franchise_website' => 'https://excelso-coffee.com',
 			'franchise_description' => 'Excelso adalah merek kopi dan kafe asli dari Indonesia yang merupakan bagian dari Kapal Api Grup, produsen kopi terbesar di Indonesia. Selain tersedia kopi kemasan premium, Excelso juga memiliki kafe yang pertama kali dibuka pada bulan September 1991 di Plaza Indonesia, Jakarta. Excelso telah berkembang menjadi salah satu kafe yang memiliki reputasi di Indonesia, hingga kini telah memiliki jaringan lebih dari 100 outlet dan hadir di lebih dari 30 kota besar di Indonesia.',
 
@@ -46,6 +48,7 @@ class FranchiseSeeder extends Seeder
 			'franchise_type' => 'Expedition',
 			'franchise_outlet' => '6800',
 			'franchise_investment' => '50 juta',
+            'franchise_logo' => 'post-images/franchise_logo/JNE.png',
 			'franchise_website' => 'https://www.jne.co.id/id/beranda',
 			'franchise_description' => 'Dengan pengalaman selama 30 tahun, JNE melayani kebutuhan pelanggan setianya, dengan jasa pengiriman dalam dan luar negeri.',
 
@@ -59,6 +62,7 @@ class FranchiseSeeder extends Seeder
 			'franchise_type' => 'Retail',
 			'franchise_outlet' => '47',
 			'franchise_investment' => '77 juta',
+            'franchise_logo' => 'post-images/franchise_logo/Lotte Grosir.png',
 			'franchise_website' => 'https://www.lottemart.co.id/',
 			'franchise_description' => 'Perusahaan ritel kenamaan Korea Selatan, LOTTE Grosir dan LOTTE Mart, yang merupakan bagian dari LOTTE GROUP, perusahaan Korea pertama yang melakukan penetrasi pasar dalam industri wholesale dan ritel di Indonesia.',
 
@@ -72,6 +76,7 @@ class FranchiseSeeder extends Seeder
 			'franchise_type' => 'Laundry',
 			'franchise_outlet' => '70 (Workshop) & 600 (Counter)',
 			'franchise_investment' => '650 juta',
+            'franchise_logo' => 'post-images/franchise_logo/Melia.jpeg',
 			'franchise_website' => 'https://www.melia-laundry.com',
 			'franchise_description' => 'Jaringan waralaba laundry terbesar di Indonesia versi Majalah Swa dan juga sebagai penerima Excellent Franchise & Business Concept Award 2006 dari Asosiasi Franchise Indonesia, serta telah beroperasi di 24 kota besar di Indonesia, termasuk di Bali.',
 
@@ -85,6 +90,7 @@ class FranchiseSeeder extends Seeder
 			'franchise_type' => 'Automotive',
 			'franchise_outlet' => '34',
 			'franchise_investment' => '211 juta s/d 369 juta',
+            'franchise_logo' => 'post-images/franchise_logo/Mr Montir.png',
 			'franchise_website' => 'https://www.mrmontir.com',
 			'franchise_description' => 'A national chain of motorcycle workshop and retails that caters the need of comfortable, quality services for motorcycles <250cc as well as the rider\'s lifestyle. Mr. MONTIR was established in 2011 as a brand of PT. Techno Motor Indonesia.',
 
@@ -98,6 +104,7 @@ class FranchiseSeeder extends Seeder
 			'franchise_type' => 'Food and Beverage',
 			'franchise_outlet' => '350',
 			'franchise_investment' => 'n/a',
+            'franchise_logo' => 'post-images/franchise_logo/Xi BoBa.png',
 			'franchise_website' => 'https://xiexieboba.com',
 			'franchise_description' => 'Xie-Xie merupakan salah satu trobosan bisnis minuman boba yang sedang populer saat ini. Menjadi minuman yang digemari saat ini, Xie-Xie akan tersebar ke seluruh kota di Indonesia. Xie-Xie memiliki komitmen untuk menyediakan produk minuman boba yang berkualitas dengan memberikan pelayanan yang baik dan profesional untuk para pecinta minuman boba. Bahan baku yang terbaik dan pilihan akan menjadikan Xie-xie memiliki produk yang unggul dengan rasa yang nikmat bagi penikmat minuman boba.',
 

@@ -5,7 +5,6 @@
 @section('content')
 
     <div class="container pt-5 pb-5">
-
         <div class="row">
             <div class="col d-flex justify-content-start">
                 <h1>Franchise</h1><br>

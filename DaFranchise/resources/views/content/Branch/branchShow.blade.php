@@ -11,10 +11,10 @@
         {{-- NavBar --}}
         <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a class="breadcrumb-item-link"
-                        href="{{ route('branch.index') }}">Branch</a></li>
-                <li class="breadcrumb-item"><a class="breadcrumb-item-link current"
-                        href="#">Branch of {{ $branch->franchise->franchise_name }}</a>
+                <li class="breadcrumb-item"><a class="breadcrumb-item-link" href="{{ route('branch.index') }}">Branch</a>
+                </li>
+                <li class="breadcrumb-item"><a class="breadcrumb-item-link current" href="#">Branch of
+                        {{ $branch->franchise->franchise_name }}</a>
                 </li>
             </ol>
         </nav>
@@ -23,7 +23,16 @@
         {{-- Branch Name --}}
         <h1 class="h1 mb-2">Branch of {{ $branch->franchise->franchise_name }}</h1>
 
-        <br><br>
+        <br>
+
+        {{-- Franchise Logo --}}
+        @if ($branch->franchise->franchise_logo != null)
+            <img src="{{ asset('/storage/' . $branch->franchise->franchise_logo) }}" alt="{{ $branch->franchise->franchise_logo }}" class="img-fluid logo-height">
+        @else
+            <img src="/img/default-square.jpg" alt="" class="img-fluid logo-height">
+        @endif
+
+        <br>
 
         <div class="row justify-content-center">
 

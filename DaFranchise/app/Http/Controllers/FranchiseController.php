@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Franchise;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FranchiseController extends Controller
 {
@@ -41,25 +42,29 @@ class FranchiseController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'franchise_name' => 'required|min:5|max:50',
+            'franchise_name' => 'required|min:4|max:50',
             'franchise_founded' => 'required',
             'franchise_type' => 'required',
             'franchise_outlet' => 'required',
             'franchise_investment' => 'required',
+            'franchise_logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'franchise_website' => 'required',
             'franchise_description' => 'required|min:100'
         ]);
 
-        Franchise::create([
-            // 'franchise_id' => $request->franchise_id,
-            'franchise_name' => $request->franchise_name,
-            'franchise_founded' => $request->franchise_founded,
-            'franchise_type' => $request->franchise_type,
-            'franchise_outlet' => $request->franchise_outlet,
-            'franchise_investment' => $request->franchise_investment,
-            'franchise_website' => $request->franchise_website,
-            'franchise_description' => $request->franchise_description,
-        ]);
+        $validateData['franchise_name'] = $request->franchise_name;
+        $validateData['franchise_founded'] = $request->franchise_founded;
+        $validateData['franchise_type'] = $request->franchise_type;
+        $validateData['franchise_outlet'] = $request->franchise_outlet;
+        $validateData['franchise_investment'] = $request->franchise_investment;
+        $validateData['franchise_website'] = $request->franchise_website;
+        $validateData['franchise_description'] = $request->franchise_description;
+
+        if ($request->hasFile('franchise_logo')) {
+            $validateData['franchise_logo'] = $request->file('franchise_logo')->store('post-images/franchise_logo');
+        }
+
+        Franchise::create($validateData);
 
         return redirect(route('franchise.index'));
     }
@@ -102,25 +107,33 @@ class FranchiseController extends Controller
         $franchise = Franchise::findOrFail($franchise_id);
 
         $this->validate($request, [
-            'franchise_name' => 'required|min:5|max:50',
+            'franchise_name' => 'required|min:4|max:50',
             'franchise_founded' => 'required',
             'franchise_type' => 'required',
             'franchise_outlet' => 'required',
             'franchise_investment' => 'required',
+            'franchise_logo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'franchise_website' => 'required',
             'franchise_description' => 'required|min:100'
         ]);
 
-        $franchise->update([
-            // 'franchise_id' => $request->franchise_id,
-            'franchise_name' => $request->franchise_name,
-            'franchise_founded' => $request->franchise_founded,
-            'franchise_type' => $request->franchise_type,
-            'franchise_outlet' => $request->franchise_outlet,
-            'franchise_investment' => $request->franchise_investment,
-            'franchise_website' => $request->franchise_website,
-            'franchise_description' => $request->franchise_description,
-        ]);
+        $validateData['franchise_name'] = $request->franchise_name;
+        $validateData['franchise_founded'] = $request->franchise_founded;
+        $validateData['franchise_type'] = $request->franchise_type;
+        $validateData['franchise_outlet'] = $request->franchise_outlet;
+        $validateData['franchise_investment'] = $request->franchise_investment;
+        $validateData['franchise_website'] = $request->franchise_website;
+        $validateData['franchise_description'] = $request->franchise_description;
+
+        if ($request->hasFile('franchise_logo')) {
+            if($request->old_franchise_logo){
+                Storage::delete($request->old_franchise_logo);
+            }
+            $validateData['franchise_logo'] = $request->file('franchise_logo')->store('post-images/franchise_logo');
+        }
+
+        Franchise::where('franchise_id', $franchise_id)->update($validateData);
+
         return redirect(route('franchise.index'));
     }
 
@@ -133,7 +146,13 @@ class FranchiseController extends Controller
     public function destroy($franchise_id)
     {
         $franchise = Franchise::findOrFail($franchise_id);
+
+        if($franchise->franchise_logo){
+            Storage::delete($franchise->franchise_logo);
+        }
+
         $franchise->delete();
+
         return redirect(route('franchise.index'));
     }
 }

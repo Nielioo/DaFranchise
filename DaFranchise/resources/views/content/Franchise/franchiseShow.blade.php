@@ -7,7 +7,6 @@
 @section('content')
 
     <div class="container mb-3">
-
         {{-- NavBar --}}
         <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -23,7 +22,18 @@
         {{-- Franchise Name --}}
         <h1 class="h1 mb-2">{{ $franchise['franchise_name'] }}</h1>
 
-        <br><br>
+        <br>
+
+        {{-- Franchise Logo --}}
+        @if ($franchise['franchise_logo'] != null)
+            <img src="{{ asset('/storage/' . $franchise['franchise_logo']) }}" alt="{{ $franchise['franchise_logo'] }}"
+                class="img-fluid logo-height">
+        @else
+            <img src="/img/default-square.jpg" alt="" class="img-fluid logo-height">
+        @endif
+
+
+        <br>
 
         <div class="row justify-content-center">
 
@@ -72,8 +82,7 @@
                                 <td class="text-paragraph align-middle text-center">{{ $branch['branch_phone'] }}</td>
                                 <td class="text-paragraph align-middle text-center">{{ $branch['branch_rating'] }}/5</td>
                                 <td class="text-paragraph align-middle text-center">
-                                    <a class="btn btn-info"
-                                        href="{{ route('branch.show', $branch->branch_id) }}"><i
+                                    <a class="btn btn-info" href="{{ route('branch.show', $branch->branch_id) }}"><i
                                             class="fa fa-eye"></i></a>
                                 </td>
 

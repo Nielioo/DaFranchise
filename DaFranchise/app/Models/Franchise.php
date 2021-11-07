@@ -19,6 +19,7 @@ class Franchise extends Model
         'franchise_type',
         'franchise_outlet',
         'franchise_investment',
+        'franchise_logo',
         'franchise_website',
         'franchise_description',
     ];

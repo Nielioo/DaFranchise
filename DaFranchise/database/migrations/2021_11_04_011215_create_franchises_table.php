@@ -22,6 +22,7 @@ class CreateFranchisesTable extends Migration
             $table->string('franchise_type');
             $table->string('franchise_outlet');
             $table->string('franchise_investment');
+            $table->string('franchise_logo')->nullable();
             $table->string('franchise_website');
             $table->text('franchise_description');
             $table->timestamps();
