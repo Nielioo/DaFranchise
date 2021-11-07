@@ -45,6 +45,16 @@ class BranchSeeder extends Seeder
         ]);
 
         DB::table('branches')->insert([
+            'branch_location' => 'Plaza Surabaya, No.11-14, Jl. Pemuda No.33, Embong Kaliasin, Kec. Genteng, Kota SBY, Jawa Timur 60271',
+            'branch_phone' => '+62315315780',
+            'branch_rating' => '4.4',
+            'franchise_id' => '2',
+
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+        ]);
+
+        DB::table('branches')->insert([
             'branch_location' => 'Supermal Pakuwon Indah, Lantai 1, Jl. Mayjen Yono Suwoyo No. 2, Surabaya, Indonesia',
             'branch_phone' => '+62317390075',
             'branch_rating' => '4.6',

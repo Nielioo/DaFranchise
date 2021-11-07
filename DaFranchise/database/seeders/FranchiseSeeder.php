@@ -92,5 +92,18 @@ class FranchiseSeeder extends Seeder
 			'updated_at' => \Carbon\Carbon::now(),
 		]);
 
+        DB::table('franchises')->insert([
+			'franchise_name' => 'Xi BoBa',
+			'franchise_founded' => '2019',
+			'franchise_type' => 'Food and Beverage',
+			'franchise_outlet' => '350',
+			'franchise_investment' => 'n/a',
+			'franchise_website' => 'https://xiexieboba.com',
+			'franchise_description' => 'Xie-Xie merupakan salah satu trobosan bisnis minuman boba yang sedang populer saat ini. Menjadi minuman yang digemari saat ini, Xie-Xie akan tersebar ke seluruh kota di Indonesia. Xie-Xie memiliki komitmen untuk menyediakan produk minuman boba yang berkualitas dengan memberikan pelayanan yang baik dan profesional untuk para pecinta minuman boba. Bahan baku yang terbaik dan pilihan akan menjadikan Xie-xie memiliki produk yang unggul dengan rasa yang nikmat bagi penikmat minuman boba.',
+
+			'created_at' => \Carbon\Carbon::now(),
+			'updated_at' => \Carbon\Carbon::now(),
+		]);
+
     }
 }
