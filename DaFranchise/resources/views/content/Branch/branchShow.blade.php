@@ -21,7 +21,7 @@
         <br>
 
         {{-- Branch Name --}}
-        <h1 class="h1 mb-2">Branch of {{ $branch->franchise->franchise_name }}</h1>
+        <h1 class="h1 mb-4">Branch of {{ $branch->franchise->franchise_name }}</h1>
 
         <br>
 
@@ -34,7 +34,7 @@
 
         <br>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-3">
 
             {{-- Branch Detail --}}
             <h4 class="h4 mt-4 mb-3">Details</h4>
