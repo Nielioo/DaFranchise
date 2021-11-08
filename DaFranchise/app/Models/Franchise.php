@@ -13,7 +13,6 @@ class Franchise extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'franchise_id',
         'franchise_name',
         'franchise_founded',
         'franchise_type',

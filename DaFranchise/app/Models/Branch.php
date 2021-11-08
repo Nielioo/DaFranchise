@@ -13,7 +13,6 @@ class Branch extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'branch_id',
         'branch_location',
         'branch_phone',
         'branch_rating',
