@@ -5,20 +5,22 @@
 @section('content')
     <div class="container pt-5 pb-5">
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <div class="row mb-5">
             <div class="col-md-8 mx-auto text-center">
                 <h1>Upload New Franchise</h1>
             </div>
+        </div>
+
+        <div class="col-md-10 m-auto">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="m-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
 
         <form action="{{ route('franchise.store') }}" method="POST" class="row g-3 justify-content-center"
